@@ -14,6 +14,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     List<String> str = new ArrayList<String>();
     String e = "";
+    String u="";
 
 
     @Override
