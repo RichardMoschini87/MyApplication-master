@@ -11,16 +11,16 @@ public class UtenteDao {
         this.utente = utente;
     }
 
-    public  String cercaUtente(Utente utente) {
+    public static  String cercaUtente(Utente utente) {
         if (utente != null)
             SQL = "";
         return SQL;
     }
 
-    public  String inserisciUtente(Utente utente) {
+    public static   String inserisciUtente(Utente utente) {
         SQL = "";
         if (utente != null && utente.getEmail() != null && utente.getPassword() != null)
-            SQL = "INSERT INTO utenti (email,password) VALUES(" + utente.getEmail() + "," + utente.getPassword() + ")";
+            SQL = "INSERT INTO utente (email,password) VALUES('" + utente.getEmail() + "','" + utente.getPassword() + "')";
         return SQL;
     }
 

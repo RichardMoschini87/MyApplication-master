@@ -28,26 +28,22 @@ public class RegisterActivity extends AppCompatActivity {
     public void getRegistrazione(View view) {
         EditText editTextEmail  = (EditText)findViewById(R.id.editTextEmail);
         EditText editTextpassword  = (EditText)findViewById(R.id.editTextPassword);
+        TextView readyExist = (TextView)findViewById(R.id.readyExist);
+
         if(!editTextEmail.getText().toString().isEmpty() && !editTextpassword.getText().toString().isEmpty()){
             utente = new Utente();
             utente.setEmail(editTextEmail.getText().toString());
             utente.setPassword(editTextpassword.getText().toString());
             if(utente != null){
-
-            //    mydb.execSQL(UtenteDao);
-
-
-
-
-
+                try{
+                mydb.execSQL(UtenteDao.inserisciUtente(utente));
+                    Intent intent2 = new Intent(this, LoginActivity.class);
+                    startActivity(intent2);
+                }
+                catch (Exception e){
+                    readyExist.setVisibility(View.VISIBLE);
+                }
             }
-
-            Intent intent2 = new Intent(this, LoginActivity.class);
-            startActivity(intent2);
-
         }
-
-
-
     }
 }
