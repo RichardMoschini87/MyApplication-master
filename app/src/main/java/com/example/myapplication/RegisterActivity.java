@@ -22,27 +22,32 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mydb = this.openOrCreateDatabase("Utenti", MODE_PRIVATE, null);
-        mydb.execSQL("CREATE TABLE IF NOT EXISTS utente (id INT(6), nome VARCHAR, cognome VARCHAR, email VARCHAR, password VARCHAR, recordTime VARCHAR)");
+        mydb.execSQL("CREATE TABLE IF NOT EXISTS utente2 (surname VARCHAR, email VARCHAR, password VARCHAR)");
     }
 
     public void getRegistrazione(View view) {
-        EditText editTextEmail  = (EditText)findViewById(R.id.editTextEmail);
-        EditText editTextpassword  = (EditText)findViewById(R.id.editTextPassword);
-        TextView readyExist = (TextView)findViewById(R.id.readyExist);
+        EditText editTextTextPersonName = (EditText) findViewById(R.id.editTextTextPersonName);
+        EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        EditText editTextpassword = (EditText) findViewById(R.id.editTextPassword);
+        TextView readyExist = (TextView) findViewById(R.id.readyExist);
 
-        if(!editTextEmail.getText().toString().isEmpty() && !editTextpassword.getText().toString().isEmpty()){
+        if (!editTextTextPersonName.getText().toString().isEmpty() && !editTextEmail.getText().toString().isEmpty() && !editTextpassword.getText().toString().isEmpty()) {
             utente = new Utente();
+            utente.setSurname(editTextTextPersonName.getText().toString());
             utente.setEmail(editTextEmail.getText().toString());
             utente.setPassword(editTextpassword.getText().toString());
-            if(utente != null){
-                try{
-                mydb.execSQL(UtenteDao.inserisciUtente(utente));
+
+            if (utente != null && utente.getSurname() != null && !utente.getSurname().contains("Surname")
+                    && utente.getEmail() != null && utente.getPassword() != null && !utente.getEmail().contains("Email")) {
+                try {
+                    mydb.execSQL(UtenteDao.inserisciUtente(utente));
                     Intent intent2 = new Intent(this, LoginActivity.class);
                     startActivity(intent2);
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     readyExist.setVisibility(View.VISIBLE);
                 }
+            } else {
+                readyExist.setVisibility(View.VISIBLE);
             }
         }
     }

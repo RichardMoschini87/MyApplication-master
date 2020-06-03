@@ -1,5 +1,8 @@
 package com.example.database.dao;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.database.pojo.Utente;
 
 public class UtenteDao {
@@ -12,15 +15,34 @@ public class UtenteDao {
     }
 
     public static  String cercaUtente(Utente utente) {
+        SQL="";
         if (utente != null)
-            SQL = "";
+            SQL = "SELECT surname,email,password FROM utente2 WHERE password = '"+utente.getPassword()+"'" ;
         return SQL;
+    }
+    public static Utente resultUtente(String SQL, SQLiteDatabase mydb){
+        int index=0;
+        Utente u = new Utente();
+        Cursor c = mydb.rawQuery(SQL,null);
+
+        if (c.moveToFirst()){
+            do {
+                // Passing values
+                u.setSurname(c.getString(index++));
+                u.setEmail(c.getString(index++));
+                u.setPassword(c.getString(index));
+                // Do something Here with values
+            } while(c.moveToNext());
+            c.close();
+            mydb.close();
+        }
+        return u;
     }
 
     public static   String inserisciUtente(Utente utente) {
         SQL = "";
-        if (utente != null && utente.getEmail() != null && utente.getPassword() != null)
-            SQL = "INSERT INTO utente (email,password) VALUES('" + utente.getEmail() + "','" + utente.getPassword() + "')";
+        if (utente != null && utente.getSurname() != null && utente.getEmail() != null && utente.getPassword() != null)
+            SQL = "INSERT INTO utente2 (surname,email,password) VALUES('"+utente.getSurname()+"','" + utente.getEmail() + "','" + utente.getPassword() + "')";
         return SQL;
     }
 

@@ -13,30 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textTraining = (TextView)findViewById(R.id.training);
+        Bundle b = getIntent().getExtras();
+        textTraining.setText("Welcome "+b.getString("nome"));
     }
 
     public void clicked(View view) {
 
     }
 
-
-    public void textChange(View view) {
-
-
-
-      TextView textTraining = (TextView)findViewById(R.id.training);
-        if(!textTraining.getText().toString().contains("ciao")){
-        textTraining.setText("ciao fre");
-        }
-        else{
-            textTraining.setText("Training");
-        }
-    }
 }
