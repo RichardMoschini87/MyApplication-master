@@ -27,11 +27,9 @@ public class UtenteDao {
 
         if (c.moveToFirst()){
             do {
-                // Passing values
                 u.setSurname(c.getString(index++));
                 u.setEmail(c.getString(index++));
                 u.setPassword(c.getString(index));
-                // Do something Here with values
             } while(c.moveToNext());
             c.close();
             mydb.close();

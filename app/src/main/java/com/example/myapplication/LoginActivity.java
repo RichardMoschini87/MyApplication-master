@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
             utente.setPassword(editTextpassword.getText().toString());
             if (utente != null && utente.getEmail() != null && utente.getPassword() != null) {
                 try {
-                utente = UtenteDao.resultUtente(UtenteDao.cercaUtente(utente),mydb);
+                    utente = UtenteDao.resultUtente(UtenteDao.cercaUtente(utente),mydb);
                     Intent intent2 = new Intent(this, MainActivity.class);
                     intent2.putExtra("nome",utente.getSurname());
                     startActivity(intent2);

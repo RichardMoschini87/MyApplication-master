@@ -8,22 +8,86 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="148dp"
-        android:layout_height="52dp"
-        android:background="#302525"
-        android:onClick="clicked"
-        android:text="Button"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:id="@+id/strongMan"
+        android:layout_width="352dp"
+        android:layout_height="77dp"
+        android:background="#100202"
+        android:fontFamily="@font/abril_fatface"
+        android:onClick="getStrongMan"
+        android:text="Strong Man"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/strongPullUp2"
+        android:layout_width="352dp"
+        android:layout_height="77dp"
+        android:background="#100202"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Custom"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/records"
+        android:layout_width="352dp"
+        android:layout_height="77dp"
+        android:background="#100202"
+        android:fontFamily="@font/abril_fatface"
+        android:onClick="getRecords"
+        android:text="Records"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81" />
+
+    <Button
+        android:id="@+id/easyGirl"
+        android:layout_width="352dp"
+        android:layout_height="77dp"
+        android:background="#100202"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Easy Girl"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529" />
+
+    <Button
+        android:id="@+id/sixPack"
+        android:layout_width="352dp"
+        android:layout_height="77dp"
+        android:background="#100202"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Six Pack"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392" />
 
     <TextView
         android:id="@+id/training"
@@ -31,13 +95,13 @@
         android:layout_height="80dp"
         android:background="@android:color/holo_orange_light"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="#010E0C"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold|italic"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
